@@ -3,4 +3,16 @@ project(LeetCode)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(LeetCode main.cpp)
+# fmt
+find_package(fmt CONFIG REQUIRED)
+# glm
+find_package(glm CONFIG REQUIRED)
+
+function(LeetCode name)
+	add_executable(LeetCode_${name} src/${name}.cpp)
+endfunction()
+
+set(TARGETS)
+
+#LeetCode("two-sum")
+LeetCode("palindrome-number")
